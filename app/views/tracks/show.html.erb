@@ -6,6 +6,9 @@
   by #{@band.name}."%> </p>
 <br>
 
+<h4><%= @track.name%> Lyrics</h4>
+<%= ugly_lyrics(@track.lyrics) %>
+
 <% @notes.each do |note| %>
   <%= render "notes/note", note: note%>
   <% if current_user && (current_user.admin || note.user_id == current_user.id) && current_user.active %>
