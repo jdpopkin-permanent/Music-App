@@ -8,6 +8,15 @@
 </head>
 <body>
 
+  <% if current_user.nil? %>
+    <%= button_to "Log in", new_session_url, method: :get %>
+    <%= " or " %>
+    <%= button_to "Register", new_user_url, method: :get %>
+  <% else %>
+    <%= "Hello, #{current_user.email}!"%> <br>
+    <%= button_to "Log out", session_url, method: :delete %>
+  <% end %>
+
 <%= yield %>
 
 <%= link_to "Return to bands page", bands_url %>

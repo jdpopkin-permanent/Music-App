@@ -8,7 +8,9 @@
 
 <% @notes.each do |note| %>
   <%= render "notes/note", note: note%>
-  <%= button_to "Delete this note", track_note_url(@track, note), method: :delete %>
+  <% if current_user.admin || note.user == current_user %>
+    <%= button_to "Delete this note", track_note_url(@track, note), method: :delete %>
+  <% end %>
   <br>
 <% end %>
 
