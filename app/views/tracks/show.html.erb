@@ -6,6 +6,14 @@
   by #{@band.name}."%> </p>
 <br>
 
+<% @notes.each do |note| %>
+  <%= render "notes/note", note: note%>
+  <%= button_to "Delete this note", track_note_url(@track, note), method: :delete %>
+  <br>
+<% end %>
+
+<%= render "notes/add_note", track: @track %>
+
 <%= link_to "More albums by #{@band.name}", band_albums_url(@band) %>
 <br>
 <br>

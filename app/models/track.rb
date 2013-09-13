@@ -5,6 +5,9 @@ class Track < ActiveRecord::Base
   validates :name, :regular_or_bonus, presence: true
   validates :regular_or_bonus, inclusion: { in: %w(bonus regular) }
 
+  has_many :notes, class_name: "Note", primary_key: :id,
+    foreign_key: :track_id, dependent: :destroy
+
   belongs_to(
     :album,
     class_name: "Album",

@@ -8,7 +8,9 @@ MusicApp::Application.routes.draw do
   end
 
   resources :albums, except: :index # change
-  resources :tracks, except: :index # change
+  resources :tracks, except: :index do # change
+    resources :notes, only: [:show, :new, :create, :destroy]
+  end
 
 
   # The priority is based upon order of creation:

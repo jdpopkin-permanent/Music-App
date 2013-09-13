@@ -10,6 +10,7 @@ class TracksController < ApplicationController
     @track = Track.find(params[:id])
     @album = @track.album
     @band = @track.band
+    @notes = @track.notes
     render :show
   end
 
