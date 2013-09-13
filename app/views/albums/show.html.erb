@@ -1,0 +1,18 @@
+<h2><%= @album.name %></h2>
+<br>
+
+<h4>About <%=@album.name %></h4>
+<p> <%= "#{@album.name} is a #{@album.live_or_studio} album by #{@band.name}."%> </p>
+<br>
+
+<%= link_to "More albums by #{@band.name}", band_url(@band) %>
+<br>
+<br>
+
+<%= link_to "Tracks on #{@album.name}", band_album_tracks_url(@album.band_id, @album.id) %>
+<br>
+<br>
+
+<%= button_to "Add a track", new_track_url, method: :get %>
+<%= button_to "Edit this album", edit_album_url(@album), method: :get %>
+<%= button_to "Delete album", album_url(@album), method: :delete %>

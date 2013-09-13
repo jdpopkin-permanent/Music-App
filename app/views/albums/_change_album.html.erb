@@ -1,0 +1,27 @@
+<label>
+  Album name
+  <input type="text" name="album[name]">
+</label>
+<br>
+<br>
+
+<label>
+  Band
+  <select name="album[band_id]">
+    <option value="">Choose a band...</option>
+    <% @bands.each do |band| %>
+      <option value="<%= band.id %>"><%= band.name%></option>
+    <% end %>
+  </select>
+</label>
+<br>
+<br>
+
+<label>
+  Live album?
+  <input type="checkbox" name="album[live_or_studio]" value = "live">
+</label>
+<br>
+<br>
+
+<input type="submit" value="Save album">

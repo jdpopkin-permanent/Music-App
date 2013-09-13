@@ -1,0 +1,19 @@
+<h2><%= @track.name %></h2>
+<br>
+
+<h4>About <%=@track.name %></h4>
+<p> <%= "#{@track.name} is a #{@track.regular_or_bonus} track on #{@album.name}
+  by #{@band.name}."%> </p>
+<br>
+
+<%= link_to "More albums by #{@band.name}", band_albums_url(@band) %>
+<br>
+<br>
+
+<%= link_to "More tracks on #{@album.name}", band_album_tracks_url(@band, @album) %>
+<br>
+<br>
+
+<%= button_to "Edit this track", edit_track_url(@track), method: :get %>
+
+<%= button_to "Delete track", track_url(@track), method: :delete %>

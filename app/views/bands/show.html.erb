@@ -5,8 +5,8 @@
 <ul>
   <% @albums.each do |album| %>
   <li>
-    <%= album.name %>
-    <%#= link_to album_url(album) %>
+    <%#= album.name %>
+    <%= link_to "#{album.name}", band_album_url(@band, album) %>
   </li>
   <% end %>
 </ul>
@@ -16,10 +16,16 @@
 <ul>
   <% @tracks.each do |track| %>
   <li>
-    <%= track.name %>
-    <%#= link_to track_url(track) %>
+    <%#= track.name %>
+    <%= link_to "#{track.name}", track_url(track) %>
   </li>
   <% end %>
-<ul>
+</ul>
+<br>
 
-  <%= button_to "Delete band", band_url(@band), method: :delete %>
+
+<%= button_to "Add album", new_album_url, method: :get%>
+<%= button_to "Edit band", edit_band_url(@band), method: :get %>
+<%= button_to "Delete band", band_url(@band), method: :delete %>
+<br>
+

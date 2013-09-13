@@ -1,0 +1,27 @@
+<label>
+  Track name
+  <input type="text" name="track[name]">
+</label>
+<br>
+<br>
+
+<label>
+  Album
+  <select name="track[album_id]">
+    <option value="">Choose an album...</option>
+    <% @albums.each do |album| %>
+      <option value="<%= album.id %>"><%= album.name%></option>
+    <% end %>
+  </select>
+</label>
+<br>
+<br>
+
+<label>
+  Bonus track?
+  <input type="checkbox" name="track[regular_or_bonus]" value = "bonus">
+</label>
+<br>
+<br>
+
+<input type="submit" value="Save track">

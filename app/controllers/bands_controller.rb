@@ -5,7 +5,8 @@ class BandsController < ApplicationController
   end
 
   def show
-    @band = Band.find(params[:id])
+    # can do: @band.includes(:albums).includes(:tracks)
+    @band = Band.includes(:albums, :tracks).find(params[:id]) # nest this.
     @albums = @band.albums
     @tracks = @band.tracks
   end
