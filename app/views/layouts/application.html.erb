@@ -2,12 +2,14 @@
 <html>
 <head>
   <title>MusicApp</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <!-- <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %> -->
   <%= csrf_meta_tags %>
 </head>
 <body>
 
+  <%= debug session %>
+  <%= debug current_user %>
   <% if current_user.nil? %>
     <%= button_to "Log in", new_session_url, method: :get %>
     <%= " or " %>

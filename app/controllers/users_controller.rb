@@ -12,10 +12,10 @@ class UsersController < ApplicationController
       msg = UserMailer.welcome_email(@user, user_activate_url(@user))
       msg.deliver!
       # flash message?
+      self.current_user = @user
       redirect_to bands_url
     else
       # flash
-      fail
       redirect_to :back
     end
   end
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   def activate
     @user = User.find(params[:user_id])
     if @user.session_token == session[:session_token]
-      @user.activated = true
+      @user.active = true
     end
     @user.save
     redirect_to bands_url

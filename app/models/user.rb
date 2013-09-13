@@ -34,8 +34,8 @@ class User < ActiveRecord::Base
   end
 
   def set_statuses
-    self.active ||= false
-    self.admin ||= false
+    self.active = false unless self.active
+    self.admin = false unless self.admin
   end
 
   # def ensure_statuses

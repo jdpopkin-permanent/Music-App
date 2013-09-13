@@ -23,9 +23,10 @@
 </ul>
 <br>
 
-
-<%= button_to "Add album", new_album_url, method: :get%>
-<%= button_to "Edit band", edit_band_url(@band), method: :get %>
-<%= button_to "Delete band", band_url(@band), method: :delete %>
+<% if current_user && current_user.admin %>
+  <%= button_to "Add album", new_album_url, method: :get%>
+  <%= button_to "Edit band", edit_band_url(@band), method: :get %>
+  <%= button_to "Delete band", band_url(@band), method: :delete %>
+<% end%>
 <br>
 

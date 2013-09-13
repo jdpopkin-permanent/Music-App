@@ -10,7 +10,7 @@ class NotesController < ApplicationController
     if note.save
       redirect_to band_album_track_url(track.band.id, track.album.id, track.id)
     else
-      fail
+      # fail
       redirect_to :back
     end
   end

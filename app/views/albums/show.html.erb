@@ -13,6 +13,8 @@
 <br>
 <br>
 
-<%= button_to "Add a track", new_track_url, method: :get %>
-<%= button_to "Edit this album", edit_album_url(@album), method: :get %>
-<%= button_to "Delete album", album_url(@album), method: :delete %>
+<% if current_user && current_user.admin %>
+  <%= button_to "Add a track", new_track_url, method: :get %>
+  <%= button_to "Edit this album", edit_album_url(@album), method: :get %>
+  <%= button_to "Delete album", album_url(@album), method: :delete %>
+<% end %>

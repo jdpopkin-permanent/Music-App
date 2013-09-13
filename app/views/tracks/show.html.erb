@@ -8,13 +8,15 @@
 
 <% @notes.each do |note| %>
   <%= render "notes/note", note: note%>
-  <% if current_user.admin || note.user == current_user %>
+  <% if current_user && (current_user.admin || note.user_id == current_user.id) && current_user.active %>
     <%= button_to "Delete this note", track_note_url(@track, note), method: :delete %>
   <% end %>
   <br>
 <% end %>
 
-<%= render "notes/add_note", track: @track %>
+<% if current_user && current_user.active %>
+  <%= render "notes/add_note", track: @track %>
+<% end %>
 
 <%= link_to "More albums by #{@band.name}", band_albums_url(@band) %>
 <br>
@@ -24,6 +26,7 @@
 <br>
 <br>
 
-<%= button_to "Edit this track", edit_track_url(@track), method: :get %>
-
-<%= button_to "Delete track", track_url(@track), method: :delete %>
+<% if current_user && current_user.admin %>
+  <%= button_to "Edit this track", edit_track_url(@track), method: :get %>
+  <%= button_to "Delete track", track_url(@track), method: :delete %>
+<% end %>
