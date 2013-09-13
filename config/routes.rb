@@ -1,4 +1,11 @@
 MusicApp::Application.routes.draw do
+
+  # To nest, or not to nest?
+  resources :bands
+  resources :albums
+  resources :tracks
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
