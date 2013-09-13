@@ -1,8 +1,8 @@
 class Track < ActiveRecord::Base
-  attr_accessible :name, :album_id, :type, :lyrics
+  attr_accessible :name, :album_id, :regular_or_bonus, :lyrics
 
-  validates :name, :type, presence: true
-  validates :type, inclusion: { %w(bonus regular) }
+  validates :name, :regular_or_bonus, presence: true
+  validates :regular_or_bonus, inclusion: { in: %w(bonus regular) }
 
   belongs_to(
     :album,
@@ -11,4 +11,5 @@ class Track < ActiveRecord::Base
     foreign_key: :album_id
   )
 
+  has_one :band, through: :album
 end

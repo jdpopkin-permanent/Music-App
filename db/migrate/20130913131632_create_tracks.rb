@@ -4,7 +4,7 @@ class CreateTracks < ActiveRecord::Migration
       t.string :name, null: false
       t.integer :album_id, index: true
       t.text :lyrics
-      t.string :type, null: false
+      t.string :regular_or_bonus, null: false
 
       t.timestamps
     end
